@@ -1,0 +1,151 @@
+:root {
+  --background-color: lightgreen;
+  --border-bottom-color: green;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 300vh;
+}
+
+header {
+  background-color: var(--background-color);
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 2px solid var(--border-bottom-color);
+
+  position: sticky;
+  top: 0;
+  z-index: 10000;
+}
+
+.upper-body {
+  height: 100vh;
+  background-color: lightcoral;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+header > a {
+  text-transform: uppercase;
+}
+
+.test::before {
+  content: "";
+}
+
+.test {
+  position: relative;
+}
+
+.test:hover::after {
+  content: "Un lien de navigation";
+  background-color: lightgray;
+  position: absolute;
+  padding: 5px;
+  border-radius: 20px;
+  border: 2px solid grey;
+  top: 30px;
+  left: -10px;
+}
+.container {
+  width: 100%;
+  background-color: lightpink;
+  display: grid;
+  /* grid-auto-flow: column; */
+  grid-template-columns: 1fr 2fr 1fr 2fr;
+  grid-template-columns: repeat(10, 1fr);
+  grid-auto-rows: 200px;
+  gap: 10px;
+  padding: 10px;
+  /* column-gap: 10px; */
+  /* row-gap: 10px; */
+  /* grid-templates-rows et grid-auto-columns fonctionnent ensemble */
+}
+.container2 {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-auto-rows: 100px auto 100px;
+  grid-template-areas:
+    "hd hd hd hd hd hd hd hd"
+    "mn mn mn mn mn mn sb sb"
+    "ft ft ft ft ft ft ft ft";
+}
+.header {
+  grid-area: hd;
+  background-color: darkolivegreen;
+}
+main {
+  grid-area: mn;
+  background-color: darkmagenta;
+}
+footer {
+  grid-area: ft;
+  background-color: darkcyan;
+}
+aside {
+  grid-area: sb;
+  background-color: darkkhaki;
+}
+
+.box {
+  display: grid;
+  place-content: center;
+}
+
+.box:nth-child(1) {
+  background-color: lightskyblue;
+  grid-column-start: 1;
+  grid-column-end: 6;
+  grid-column: 1/6;
+}
+
+.box:nth-child(2) {
+  background-color: lightgoldenrodyellow;
+  grid-column: 6/11;
+  grid-row: 1/3;
+}
+.box:nth-child(3) {
+  background-color: lightseagreen;
+  grid-column: 1/4;
+  grid-row: 2/4;
+}
+.box:nth-child(4) {
+  background-color: lightslategray;
+  grid-column: 4/ 6;
+  grid-row: 2/5;
+}
+@media (max-width: 600px) {
+  :root {
+    --background-color: lightblue;
+    --border-bottom-color: blue;
+  }
+
+  /* header {
+    position: static;
+  } */
+
+  nav {
+    display: none;
+  }
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: darkblue;
+  }
+} */
